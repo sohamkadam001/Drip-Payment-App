@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model User {
+  id       Int   @default(autoincrement())  @id 
+  username String 
+  email String @unique
+  password String
+  balance Balance?
+  sendtxns transaction[] @relation("sendtransaction")
+  receivertxns transaction[] @relation("recievedtransaction")
+}
+
+model Balance{
+id Int @id @default(autoincrement())
+balance Int
+userId Int @unique
+user  User @relation(fields: [userId] , references: [id])
+}
+
+model transaction {
+  id Int @default(autoincrement()) @id
+  amount Int
+  senderId Int
+  receiverId Int
+  sender User @relation("sendtransaction",fields: [senderId], references: [id])
+  receiver User @relation("recievedtransaction",fields: [receiverId] , references: [id])
+}
