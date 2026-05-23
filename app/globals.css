@@ -1,3 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Forces Tailwind v4 to respect the manual Sun/Moon toggle */
+@variant dark (&:is(.dark *));

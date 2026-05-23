@@ -22,7 +22,7 @@ export async function POST(req: Request) {
             return Response.json({ msg: "Cannot self transfer" }, { status: 400 })
         }
 
-        await prisma.$transaction(async (tx) => {
+        await prisma.$transaction(async (tx : any) => {
 
             const sender = await tx.balance.findFirst({
                 where: { userId: senderId }
