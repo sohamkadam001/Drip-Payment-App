@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ArrowRight, ShieldCheck, Zap, Globe, CreditCard } from "lucide-react"
-
+import { ArrowRight, ShieldCheck, Zap, Globe, CreditCard, Router } from "lucide-react"
+import Link from "next/link"
 export default function LandingPage() {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -14,13 +14,10 @@ export default function LandingPage() {
 
   return (
     <div className="relative min-h-screen bg-[#fafafa] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans overflow-x-hidden scroll-smooth">
-      
-      {/* =========================================
-          FLOATING PREMIUM NAVBAR
-          ========================================= */}
+
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6 pointer-events-none transition-all duration-700 ease-out transform translate-y-0">
         <nav className="pointer-events-auto flex items-center justify-between w-full max-w-5xl px-2 py-2 pl-6 bg-white/70 backdrop-blur-2xl border border-neutral-200/60 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300">
-          
+
           {/* Logo (Scrolls to top) */}
           <a href="#" className="flex items-center gap-3 cursor-pointer group">
             <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300">
@@ -38,11 +35,11 @@ export default function LandingPage() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-2">
+          <Link href="/signin">
             <button className="px-6 py-2.5 text-sm font-bold rounded-full bg-black text-white hover:scale-105 hover:shadow-lg transition-all duration-300">
               Sign In
             </button>
-          </div>
+          </Link>
         </nav>
       </div>
 
@@ -50,24 +47,21 @@ export default function LandingPage() {
           FULL-BLEED HERO SECTION
           ========================================= */}
       <div className="relative w-full pt-48 pb-32 md:pt-56 md:pb-40 flex flex-col items-center text-center">
-        
+
         {/* MASSIVE AURORA BACKGROUND */}
         <div className="absolute top-0 left-0 right-0 h-[800px] pointer-events-none z-0 overflow-hidden opacity-90">
           <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[80%] rounded-full bg-indigo-500/20 blur-[120px] md:blur-[160px]"></div>
           <div className="absolute top-[0%] -right-[10%] w-[50%] h-[70%] rounded-full bg-orange-400/20 blur-[120px] md:blur-[160px]"></div>
           <div className="absolute -bottom-[10%] left-[20%] w-[60%] h-[60%] rounded-full bg-cyan-400/20 blur-[120px] md:blur-[160px]"></div>
-          
+
           <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#fafafa] to-transparent"></div>
         </div>
 
         {/* HERO CONTENT */}
         <div className={`relative z-10 flex flex-col items-center px-6 max-w-5xl mx-auto transition-all duration-1000 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="mb-8 px-5 py-2 rounded-full border border-neutral-200/80 bg-white/60 backdrop-blur-md text-xs font-bold tracking-widest uppercase text-neutral-600 shadow-sm">
-            The Modern Financial Stack
-          </div>
 
           <h1 className="text-6xl md:text-[6.5rem] lg:text-[7.5rem] font-extrabold tracking-tighter leading-[0.95] mb-8 text-black">
-            Send Money <br /> 
+            Send Money <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 to-neutral-900">
               Instantly.
             </span>
@@ -94,7 +88,7 @@ export default function LandingPage() {
           ========================================= */}
       <section id="features" className={`relative z-20 px-4 md:px-8 pb-10 max-w-7xl mx-auto -mt-10 md:-mt-16 transition-all duration-1000 delay-200 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
+
           <div className="md:col-span-2 p-10 md:p-12 rounded-[2.5rem] bg-white border border-neutral-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between overflow-hidden">
             <div className="relative z-10">
               <div className="mb-8 inline-flex p-4 rounded-full bg-neutral-100 text-black border border-neutral-200/50 group-hover:scale-110 transition-transform duration-300">
@@ -131,7 +125,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-           <div className="md:col-span-2 p-10 md:p-12 rounded-[2.5rem] bg-black text-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between overflow-hidden">
+          <div className="md:col-span-2 p-10 md:p-12 rounded-[2.5rem] bg-black text-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 group flex flex-col justify-between overflow-hidden">
             <div className="relative z-10">
               <div className="mb-8 inline-flex p-4 rounded-full bg-neutral-800 text-white group-hover:scale-110 transition-transform duration-300">
                 <ShieldCheck size={32} strokeWidth={2} />
@@ -151,7 +145,7 @@ export default function LandingPage() {
           ========================================= */}
       <section id="how-it-works" className={`relative z-20 w-full py-32 bg-white border-y border-neutral-200/50 mt-16 transition-all duration-1000 delay-300 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          
+
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-black">Designed for simplicity.</h2>
             <p className="text-lg text-neutral-500 max-w-2xl mx-auto font-medium leading-relaxed">
@@ -160,7 +154,7 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 relative">
-            
+
             {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-transparent via-neutral-200 to-transparent z-0"></div>
 
